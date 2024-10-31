@@ -1,7 +1,7 @@
 #meu primeiro banquinho
-create database ecI_cc1m;
+create database ESTUDO_1;
 
-use ecI_cc1m;
+use ESTUDO_1;
 
 #criar tabela
 create table if not exists Fornecedores(
@@ -48,8 +48,9 @@ Ped_Cod int,
 Ped_Data date not null,
 Ped_Hora time not null,
 Ped_Previsao date not null,
+Ped_Fornec int not null,
 Ped_Status enum('pendente', 'concluído', 'em espera') not null,
-constraint FK_Fornecedor foreign key (Ped_Fornec) references Fornecedores(Fornec_Cod)
+foreign key (Ped_Fornec) references Fornecedores(Fornec_Cod)
 );
 
 create table if not exists Recebimentos (
@@ -58,16 +59,16 @@ Receb_Hora time not null,
 Receb_Quant_Prod decimal(10,3) not null,
 Receb_Condicao enum('pago', 'pendente'),
 Receb_Pedidos int primary key,
-constraint FK_Pedidos foreign key(Ped_Cod) references Pedidos(Ped_Cod)
+foreign key(Receb_Pedidos) references Produtos(Prod_Cod)
 );
 
 create table if not exists Pedidos_Produtos (
 PDPedidos int,
 PDProdutos int,
-primary key(Pedidos, Produtos),
+primary key(PDPedidos, PDProdutos),
 PDPR_Quant decimal(10,3) not null,
-constraint PDPR_FK_Pedidos foreign key(PDPR_Pedidos) references Pedidos(Ped_Cod),
-constraint PDPR_FK_Produtos foreign key(PDPR_Produtos) references Produtos(Prod_Cod)
+foreign key(PDPedidos) references Pedidos(Ped_Cod),
+foreign key(PDProdutos) references Produtos(Prod_Cod)
 );
 
 create table if not exists Filiais_Produtos (
