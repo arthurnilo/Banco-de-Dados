@@ -1,5 +1,5 @@
 # Banco de Dados Academia
-drop database est_caso_4;
+drop database est_caso_4; #não usar se for a primeira vez compilando
 create database est_caso_4;
 
 use est_caso_4;
