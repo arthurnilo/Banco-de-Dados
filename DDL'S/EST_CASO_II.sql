@@ -1,4 +1,4 @@
-DROP DATABASE FlyHighAirlines;
+DROP DATABASE FlyHighAirlines; #não usar se for a primeira vez compilando
 CREATE DATABASE FlyHighAirlines;
 USE FlyHighAirlines;
 
