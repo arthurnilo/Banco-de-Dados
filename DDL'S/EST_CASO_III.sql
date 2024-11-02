@@ -1,4 +1,4 @@
-DROP SCHEMA est_caso_3;
+DROP SCHEMA est_caso_3; #não usar se for a primeira vez compilando
 CREATE SCHEMA est_caso_3;
 
 USE est_caso_3;
